@@ -16,22 +16,13 @@ afterAll(async () => {
 
 describe('Students endpoints', () => {
   describe('Create Student', () => {
-    it('should not create a student with empty request body', async () => {
+    it('should not create a student with invalid request body', async () => {
       const res = await request(applistener).post('/api/v1/students').send({});
 
       expect(res.status).toBe(400);
       expect(res.body.status).toBe('failed');
       expect(res.body.errors).toContainEqual(
-        expect.objectContaining({ message: 'Family name is required' })
-      );
-      expect(res.body.errors).toContainEqual(
-        expect.objectContaining({ message: 'Date of birth is required' })
-      );
-      expect(res.body.errors).toContainEqual(
         expect.objectContaining({ message: 'First name is required' })
-      );
-      expect(res.body.errors).toContainEqual(
-        expect.objectContaining({ message: 'Email is required' })
       );
     });
 

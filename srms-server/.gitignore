@@ -8,3 +8,4 @@ temp/.build/
 database.sqlite
 .tsbuildinfo
 coverage
+.DS_Store

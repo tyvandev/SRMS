@@ -10,8 +10,8 @@ const mainConfig: DataSourceOptions = {
   synchronize: false,
   logging: false,
   entities: [Student, Course, Result],
-  migrations: ['src/migrations/1682648054028-InitialMigration.ts'],
-  migrationsRun: false,
+  migrations: ['src/migrations/1682727115316-InitialMigration.ts'],
+  migrationsRun: true,
   metadataTableName: 'typeorm-migrations',
   subscribers: [],
 };

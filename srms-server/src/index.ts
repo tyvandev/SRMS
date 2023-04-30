@@ -19,12 +19,18 @@ app.use('/api/v1/students', studentRouter);
 app.use('/api/v1/courses', courseRouter);
 app.use('/api/v1/results', resultRouter);
 
-app.use((err: Error, req: Request, res: Response) => {
-  res.status(500).send('Server Error');
+app.use((req, res, next) => {
+  res.status(404).json({
+    status: '404',
+    reason: 'Not found',
+  });
 });
 
-app.get('/', (req, res) => {
-  res.send('Hello, world!');
+app.use((err: unknown, req: Request, res: Response) => {
+  res.status(500).json({
+    status: '500',
+    reason: 'Erorr',
+  });
 });
 
 export const applistener = app.listen(8000, () => {
